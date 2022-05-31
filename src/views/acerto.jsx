@@ -52,7 +52,17 @@ const style = {
   }
 }
 
-export const PopupAcerto = (link) => (
+export const PopupAcerto = () => {
+  let link = '/main'
+  function handleAnswer() {
+    const itemsDone = JSON.parse(localStorage.getItem('progress'))
+    if (itemsDone) {
+      if (itemsDone.step == 8) {
+        link = '/contagem'
+      }
+    }
+  }
+  return(
   <>
     <Header></Header>
     <Container>
@@ -70,8 +80,9 @@ export const PopupAcerto = (link) => (
               nível!
             </p>
             <NavButton
+              onLoad = {handleAnswer()}
               label="AVANÇAR"
-              url="/main"
+              url={link}
               style={{ width: 264, marginTop: 20, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
             >
               AVANÇAR
@@ -84,4 +95,5 @@ export const PopupAcerto = (link) => (
       </div>
     </Container>
   </>
-)
+  )
+}

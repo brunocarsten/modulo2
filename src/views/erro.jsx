@@ -19,6 +19,7 @@ const style = {
     fontWeight: 'bold',
     fontSize: 16,
     margin: 0,
+    width: '100%',
     paddingBottom: 20
   },
   main: {
@@ -68,7 +69,6 @@ export const PopupErro = (link) => {
                 url={link}
                 style={{ width: 264, marginTop: 20, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
               >
-                VOLTAR
               </Button>
             </div>
             <div className="bkgdir" style={style.bkg}>

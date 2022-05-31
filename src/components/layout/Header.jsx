@@ -105,52 +105,6 @@ export const Header = ({ hasBackground = true, css }) => {
           <img src={chevron} style={{ marginRight: 8 }} alt="" />
           Voltar ao início
         </Link>
-        <Link
-          className={cardInactive ? ' disabled' : ''}
-          to="/cartas"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#3DC2EA',
-            padding: '0px 35px',
-            height: 50,
-            borderRadius: 30,
-            fontSize: 13,
-            lineHeight: '16px',
-            fontWeight: 'bold',
-            color: '#FFFFFF',
-            textDecoration: 'none',
-            marginRight: 50
-          }}
-        >
-          <img src={carta} style={{ marginRight: 14 }} alt="" />
-          CARTAS
-        </Link>
-        <Button
-          className={inactive ? 'button disabled' : 'button'}
-          style={{
-            width: 300,
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#3DC2EA',
-            padding: '0px 35px',
-            height: 50,
-            borderRadius: 30,
-            fontSize: 13,
-            lineHeight: '16px',
-            fontWeight: 'bold',
-            color: '#FFFFFF',
-            textDecoration: 'none'
-          }}
-          onClick={() => {
-            activateHelp()
-          }}
-        >
-          <img src={ajuda} style={{ marginRight: 14 }} alt="" />
-          AJUDA DOS ESPECIALISTAS
-        </Button>
       </RenderBackground>
     </div>
   )

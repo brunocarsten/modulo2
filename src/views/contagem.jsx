@@ -2,19 +2,8 @@ import { Container } from '../components/layout/Container'
 import { Link } from 'react-router-dom'
 import { NavButton } from '../components/layout/NavButton'
 
-
-import imagem_1 from '../assets/1.png'
-import imagem_2 from '../assets/2.png'
-import imagem_3 from '../assets/3.png'
-import imagem_4 from '../assets/4.png'
-import imagem_5 from '../assets/5.png'
-import imagem_6 from '../assets/6.png'
-import imagem_7 from '../assets/7.png'
-import imagem_8 from '../assets/8.png'
 import imgdir from '../assets/popup amarelo dir.png'
 import imgesq from '../assets/popup amarelo esq.png'
-import pontos from '../assets/pontos.png'
-import zero from '../assets/popup 0.png'
 import logo from '../assets/logo verde.png'
 import topodir from '../assets/formas topo dir.png'
 import topoesq from '../assets/formas topo esq.png'
@@ -76,26 +65,7 @@ const style = {
     }
 }
 
-export const PopupContagem = (link, acertos) => { 
-    const quant = acertos;
-    let img = '';
-    if (quant == 1) {
-        img = imagem_1;
-    }else if (quant == 2) {
-        img = imagem_2;
-    }else if (quant == 3) {
-        img = imagem_3;
-    }else if (quant == 4) {
-        img = imagem_4;
-    }else if (quant == 5) {
-        img = imagem_5;
-    }else if (quant == 6) {
-        img = imagem_6;
-    }else if (quant == 7) {
-        img = imagem_7;
-    }else if (quant == 8) {
-        img = imagem_8;
-    }
+export const PopupContagem = (link) => { 
     return (
     <>
     <div className="header" style={style.header}>
@@ -132,29 +102,10 @@ export const PopupContagem = (link, acertos) => {
                 </div>
                 <div className="content" style={style.content}>
                     <h1 style={style.title}>Parabéns!</h1>
-                    <p style={style.text}>Você chegou com sucesso ao fim desta jornada e visitou diversas comunidades de povos tradicionais. Continue o curso e aprenda muito mais!</p>
-                    <div className="numeros" style={style.img}>
-                    <div className="pontos" style={style.pontos}>
-                        <div className="number">
-                        <img
-                            src={img}
-                            alt=""
-                            style={{
-                            height: 55,
-                            filter:
-                                'brightness(0) saturate(100%) invert(21%) sepia(12%) saturate(3223%) hue-rotate(64deg) brightness(88%) contrast(102%)'
-                            }}
-                        />   
-                        <img src={zero} alt="" />
-                        </div>
-                        <div className="word">
-                        <img src={pontos} alt="" />
-                        </div>
-                    </div>
-                    </div>
+                    <p style={style.text}>Você chegou com sucesso ao fim desta jornada. Continue o curso e aprenda muito mais!</p>
                     <NavButton
                     label="AVANÇAR"
-                    url={link}
+                    url='/'
                     style={{ width: 264, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
                     >
                     AVANÇAR
