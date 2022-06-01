@@ -50,6 +50,7 @@ export const Welcome = () => {
         return (
           <>
             <div className="info">
+              <h1 className="title">REGRAS DO JOGO</h1>
               <ul>
                 <li>
                   <img src={image1} alt="1" />
