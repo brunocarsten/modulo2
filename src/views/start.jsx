@@ -32,7 +32,10 @@ const style = {
   green: {
     width: '30%',
     display: 'table',
-    maxHeight: 705
+    maxHeight: 705,
+    position: 'absolute',
+    right: 0,
+    bottom: 45
   }
 }
 
