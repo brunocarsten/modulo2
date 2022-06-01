@@ -1,16 +1,25 @@
 .flip-card.active .flip-card-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-    -webkit-backface-visibility: hidden; 
-    backface-visibility: hidden;
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card {
+  cursor: pointer;
+}
+
+.inactive {
+  pointer-events: none;
 }
 
 .flip-card-back {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.button.active{
-    opacity: 1 !important;
+.button.active {
+  opacity: 1 !important;
 }

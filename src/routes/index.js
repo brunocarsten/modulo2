@@ -2,11 +2,9 @@ import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { Routes, Route } from 'react-router-dom'
-import { Header } from '../components/layout/Header'
 
 import { Start } from '../views/start'
 import { Welcome } from '../views/welcome'
-import { Map } from '../views/map'
 import { PopupAcerto } from '../views/acerto'
 import { PopupErro } from '../views/erro'
 import { PopupContagem } from '../views/contagem'
@@ -37,7 +35,6 @@ export default () => {
           <Route exact path="/" element={<Start />} />
           <Route exact path="/boas-vindas" element={<Welcome />} />
           <Route exact path="/main" element={<Main />} />
-          <Route exact path="/mapa" element={<Map />} />
           <Route exact path="/acerto" element={<PopupAcerto />} />
           <Route exact path="/erro" element={<PopupErro />} />
           <Route exact path="/contagem" element={<PopupContagem />} />

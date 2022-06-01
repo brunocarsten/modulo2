@@ -1,14 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Container } from '../components/layout/Container'
 import { Header } from '../components/layout/Header'
 import { NavButton } from '../components/layout/NavButton'
+import { Card } from '../components/layout/Card'
 
 import { ProgressContext } from '../context/progress'
 
 import '../styles/cartas.scoped.scss'
 
 import baixo from '../assets/cartas baixo.png'
-import bkg from '../assets/carta bkg.png'
 import rei from '../assets/rei.png'
 import as from '../assets/as.png'
 import dois from '../assets/dois.png'
@@ -37,12 +37,6 @@ const style = {
     flexDirection: 'column',
     overflow: 'hidden'
   },
-  card: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    zIndex: 0
-  },
   flip: {
     backgroundColor: 'transparent',
     width: 127,
@@ -52,18 +46,37 @@ const style = {
   }
 }
 
-export const Cartas = (link) => {
+export const Cartas = () => {
   const { dispatch } = useContext(ProgressContext)
+  const [items, setItems] = useState([])
 
-  const randomRei = Math.floor(Math.random() * (4 - 0)) + 0
-  const randomAs = Math.floor(Math.random() * (4 - 0)) + 0
-  const randomDois = Math.floor(Math.random() * (4 - 0)) + 0
-  const randomTres = Math.floor(Math.random() * (4 - 0)) + 0
+  useEffect(() => {
+    const array = [
+      { image: rei, data: 'rei' },
+      { image: as, data: 'as' },
+      { image: dois, data: 'dois' },
+      { image: tres, data: 'tres' }
+    ]
+
+    let currentIndex = array.length,
+      randomIndex
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+      ;[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+    }
+
+    setItems(array)
+  }, [])
 
   function flipCard({ target }) {
     const parent = target.parentNode.parentNode.parentNode
     dispatch({ type: 'setCard', card: parent.getAttribute('data-card') })
-    if (document.querySelectorAll('.flip-card.active').length == 0) {
+    const cards = document.querySelectorAll('.flip-card')
+    cards.forEach((card) => {
+      card.classList.add('inactive')
+    })
+    if (document.querySelectorAll('.flip-card.active').length === 0) {
       parent.classList.add('active')
     }
     document.querySelector('#card-button').classList.add('active')
@@ -71,7 +84,7 @@ export const Cartas = (link) => {
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <Container>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'calc(100vh - 83px)' }}>
           <div className="popup" style={style.main}>
@@ -86,114 +99,20 @@ export const Cartas = (link) => {
                 padding: '0px 9%'
               }}
             >
-              <div
-                data-card="rei"
-                className="flip-card"
-                style={{ order: randomRei, ...style.flip }}
-                onClick={(event) => {
-                  flipCard(event)
-                }}
-              >
-                <div
-                  className="flip-card-inner"
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                    textAlign: 'center',
-                    transition: 'transform 0.8s',
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div className="flip-card-front" style={style.card}>
-                    <img src={bkg} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                  <div className="flip-card-back" style={style.card}>
-                    <img src={rei} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                </div>
-              </div>
-              <div
-                className="flip-card"
-                style={{ order: randomAs, ...style.flip }}
-                onClick={(event) => {
-                  flipCard(event)
-                }}
-                data-card="as"
-              >
-                <div
-                  className="flip-card-inner"
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                    textAlign: 'center',
-                    transition: 'transform 0.8s',
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div className="flip-card-front" style={style.card}>
-                    <img src={bkg} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                  <div className="flip-card-back" style={style.card}>
-                    <img src={as} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                </div>
-              </div>
-              <div
-                data-card="dois"
-                className="flip-card"
-                style={{ order: randomDois, ...style.flip }}
-                onClick={(event) => {
-                  flipCard(event)
-                }}
-              >
-                <div
-                  className="flip-card-inner"
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                    textAlign: 'center',
-                    transition: 'transform 0.8s',
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div className="flip-card-front" style={style.card}>
-                    <img src={bkg} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                  <div className="flip-card-back" style={style.card}>
-                    <img src={dois} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                </div>
-              </div>
-              <div
-                data-card="tres"
-                className="flip-card"
-                style={{ order: randomTres, ...style.flip }}
-                onClick={(event) => {
-                  flipCard(event)
-                }}
-              >
-                <div
-                  className="flip-card-inner"
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '100%',
-                    textAlign: 'center',
-                    transition: 'transform 0.8s',
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
-                  <div className="flip-card-front" style={style.card}>
-                    <img src={bkg} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                  <div className="flip-card-back" style={style.card}>
-                    <img src={tres} alt="" style={{ width: 127, height: 181 }} />
-                  </div>
-                </div>
-              </div>
+              {items.map((card, i) => {
+                return (
+                  <Card
+                    className="flip-card"
+                    data-card={card.data}
+                    key={i}
+                    image={card.image}
+                    style={style.flip}
+                    onClick={(event) => {
+                      flipCard(event)
+                    }}
+                  />
+                )
+              })}
             </div>
             <NavButton
               id="card-button"
