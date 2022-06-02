@@ -5,6 +5,7 @@ import { NavButton } from '../components/layout/NavButton'
 import { Card } from '../components/layout/Card'
 
 import { ProgressContext } from '../context/progress'
+import { shuffle } from '../helpers/shuffle'
 
 import '../styles/cartas.scoped.scss'
 
@@ -58,15 +59,9 @@ export const Cartas = () => {
       { image: tres, data: 'tres' }
     ]
 
-    let currentIndex = array.length,
-      randomIndex
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex)
-      currentIndex--
-      ;[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
-    }
+    const randomize = shuffle(array)
 
-    setItems(array)
+    setItems(randomize)
   }, [])
 
   function flipCard({ target }) {

@@ -13,8 +13,7 @@ export const questions = [
   {
     index: 0,
     title: 'PERGUNTA 1',
-    question:
-      'Sobre Estado, etnodesenvolvimento e políticas públicas da primeira infância é correto afirmar:',
+    question: 'Sobre Estado, etnodesenvolvimento e políticas públicas da primeira infância é correto afirmar:',
     alternatives: [
       {
         correct: true,
@@ -33,13 +32,13 @@ export const questions = [
         text: 'O Estado considera o contexto, as experiências, as visões de mundo, a participação e o protagonismo dos povos locais como aspectos que impedem as possibilidades de alcançar os objetivos da sua atuação pela garantia de direitos.'
       }
     ],
-    image: image1
+    image: image1,
+    message: 'A primeira infância é um dos períodos mais importantes na vida de uma criança.'
   },
   {
     index: 1,
     title: 'PERGUNTA 2',
-    question:
-      'Sobre o Marco Legal da Primeira Infância (Lei Federal nº 13.257/2016) é incorreto afirmar:',
+    question: 'Sobre o Marco Legal da Primeira Infância (Lei Federal nº 13.257/2016) é incorreto afirmar:',
     alternatives: [
       {
         correct: false,
@@ -58,13 +57,13 @@ export const questions = [
         text: 'Apesar da priorização da primeira infância, o Marco Legal não preconiza a priorização do investimento público na promoção da justiça social, da equidade e da inclusão sem discriminação da criança, o que se torna uma lacuna da Lei Federal.'
       }
     ],
-    image: image2
+    image: image2,
+    message: 'É importante saber pontos de melhoria na legislação para  promoção dos direitos da criança. '
   },
   {
     index: 2,
     title: 'PERGUNTA 3',
-    question:
-      'Sobre a Convenção Internacional sobre os Direitos da Criança (1989) é correto afirmar:',
+    question: 'Sobre a Convenção Internacional sobre os Direitos da Criança (1989) é correto afirmar:',
     alternatives: [
       {
         correct: false,
@@ -83,13 +82,14 @@ export const questions = [
         text: 'Nos Estados Partes onde existam minorias étnicas, religiosas ou linguísticas, ou pessoas de origem indígena, a língua e os costumes oficiais deverão ser privilegiados.'
       }
     ],
-    image: image3
+    image: image3,
+    message:
+      'Valorizar a diversidade e os costumes de cada povo é essencial para a busca pela justiça social e para o desenvolvimento integral das nossas crianças. '
   },
   {
     index: 3,
     title: 'PERGUNTA 4',
-    question:
-      'Desenvolvimento integral é direito na primeira infância. Sobre esse tema é correto afirmar:',
+    question: 'Desenvolvimento integral é direito na primeira infância. Sobre esse tema é correto afirmar:',
     alternatives: [
       {
         correct: true,
@@ -108,7 +108,9 @@ export const questions = [
         text: 'A  Doutrina de Proteção Integral responsabiliza somente a família pela proteção e garantia dos direitos de crianças e adolescentes.'
       }
     ],
-    image: image4
+    image: image4,
+    message:
+      'O Programa Criança Feliz é uma das principais políticas do Estado para garantir o desenvolvimento infantil'
   },
   {
     index: 4,
@@ -133,13 +135,14 @@ export const questions = [
         text: 'Todas as alternativas estão corretas.'
       }
     ],
-    image: image5
+    image: image5,
+    message:
+      'Certa resposta! A Constituição Federal de 1988 é a nossa Carta Magna e também garante proteção às crianças. '
   },
   {
     index: 5,
     title: 'PERGUNTA 6',
-    question:
-      'Sobre Estado, etnodesenvolvimento e políticas públicas da primeira infância é correto afirmar:',
+    question: 'Sobre Estado, etnodesenvolvimento e políticas públicas da primeira infância é correto afirmar:',
     alternatives: [
       {
         correct: true,
@@ -158,7 +161,9 @@ export const questions = [
         text: 'No etnodesenvolvimento, ao se atender um povo ou uma comunidade tradicional, é importante já haver um modo correto e documentado de fazer as coisas, para que as estratégias considerem todos de modo igual.'
       }
     ],
-    image: image6
+    image: image6,
+    message:
+      'Respeitar as culturas, as religiões, os costumes e todo o contexto dos povos tradicionais é uma das principais regras para profissionais do Programa Criança Feliz. '
   },
   {
     index: 6,
@@ -183,13 +188,13 @@ export const questions = [
         text: 'As ações de etnodesenvolvimento nas aldeias, realizadas pela Funai, buscam orientar e fortalecer seus vínculos com a sociedade moderna.'
       }
     ],
-    image: image7
+    image: image7,
+    message: 'O etnodesenvolvimento é uma das diretrizes da Funai.'
   },
   {
     index: 7,
     title: 'PERGUNTA 8',
-    question:
-      'Sobre a Convenção Internacional sobre os Direitos da Criança (1989) é correto afirmar:',
+    question: 'Sobre a Convenção Internacional sobre os Direitos da Criança (1989) é correto afirmar:',
     alternatives: [
       {
         correct: false,
@@ -208,6 +213,8 @@ export const questions = [
         text: 'Todas as alternativas estão corretas.'
       }
     ],
-    image: image8
+    image: image8,
+    message:
+      'A Convenção Internacional sobre os Direitos da Criança (1989) é o principal documento internacional, aceito por 196 países do mundo. '
   }
 ]

@@ -63,13 +63,12 @@ export const PopupErro = (link) => {
               <p style={style.text}>Tente novamente!</p>
               <Button
                 onClick={() => {
-                  navigate(-1)
+                  navigate('/main', { state: { error: true } })
                 }}
                 label="VOLTAR"
                 url={link}
                 style={{ width: 264, marginTop: 20, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
-              >
-              </Button>
+              ></Button>
             </div>
             <div className="bkgdir" style={style.bkg}>
               <img src={imgdir} alt="" />

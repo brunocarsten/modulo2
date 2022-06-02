@@ -1,10 +1,11 @@
+import { forwardRef } from 'react'
 import '../styles/button.scoped.scss'
 
-export const Button = ({ label, children, ...props }) => {
+export const Button = forwardRef(({ label, children, ...props }, ref) => {
   return (
-    <button className="button" {...props}>
+    <button ref={ref} className="button" {...props}>
       {label}
       {children}
     </button>
   )
-}
+})

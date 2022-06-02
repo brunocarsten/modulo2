@@ -1,57 +1,44 @@
 import '../styles/question.scoped.scss'
 
-import { useNavigate } from 'react-router-dom'
-import { useContext, useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { useContext, useState, useEffect, forwardRef } from 'react'
 import { Button } from './Button'
 import { Checkbox } from './Checkbox'
-import { AlternativesContext } from '../../context/alternatives'
 import { ProgressContext } from '../../context/progress'
+import { changeAlternatives } from '../../helpers/card'
+import { shuffle } from '../../helpers/shuffle'
 
 import overlay from '../../assets/overlay foto popup.png'
 
-export const Question = ({ ...props }) => {
+export const Question = ({ buttons, ...props }) => {
+  const location = useLocation()
   const navigate = useNavigate()
   const { bkg, src, item } = props
-  const { alternatives, question, title } = item
+  const { alternatives, question, title, message } = item
   const { dispatch, state } = useContext(ProgressContext)
-  const { items, handleState } = useContext(AlternativesContext)
   const { card } = state
 
+  const [items, setItems] = useState([])
+  const [holder] = useState(alternatives)
   const [selected, setSelected] = useState(0)
 
   useEffect(() => {
-    if (card !== 'undefined') handleAlternatives(card, items)
+    if (card !== undefined) {
+      handleAlternatives()
+    } else {
+      setItems(holder)
+    }
+    if (location.state) {
+      setItems(shuffle(alternatives))
+    }
   }, [])
 
-  const handleAlternatives = (card) => {
-    let data = []
-    switch (card) {
-      case 'tres':
-        for (const key in alternatives) {
-          if (!alternatives[key].correct) {
-            alternatives[key].inactive = true
-          }
-        }
-        data = alternatives
-        break
-      case 'dois':
-        for (const key in alternatives) {
-          if (!alternatives[key].correct && key < 3) {
-            alternatives[key].inactive = true
-          }
-        }
-        data = alternatives
-        break
-      case 'as':
-        let alternative = alternatives[Math.floor(Math.random() * alternatives.length)]
-        if (!alternative.correct) alternative.inactive = true
-        data = alternatives
-        break
-      default:
-        break
-    }
-
-    handleState(data)
+  const handleAlternatives = async () => {
+    buttons.forEach((button) => {
+      button.current.classList.add('disabled')
+    })
+    const changedItems = await changeAlternatives(card, holder)
+    setItems(changedItems)
   }
 
   const onChangeValue = (value) => {
@@ -63,14 +50,14 @@ export const Question = ({ ...props }) => {
 
     if (correct) {
       dispatch({ type: 'increment' })
-      navigate('/acerto')
+      navigate('/acerto', { state: { message } })
     } else {
       navigate('/erro')
     }
   }
 
   const render = () => {
-    return alternatives.map((alternative, i) => {
+    return items.map((alternative, i) => {
       return (
         <li
           key={i}

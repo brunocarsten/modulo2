@@ -1,5 +1,5 @@
 import '../styles/main.scoped.scss'
-import { useContext, useState } from 'react'
+import { useContext, useRef } from 'react'
 
 import { Container } from '../components/layout/Container'
 import { Question } from '../components/layout/Question'
@@ -18,7 +18,6 @@ import ajuda from '../assets/icone ajuda.png'
 import { questions } from '../config'
 
 export const Main = () => {
-
   const style = {
     main: {
       width: '100%',
@@ -31,20 +30,21 @@ export const Main = () => {
     }
   }
 
-  const [inactive, setInactive] = useState(false)
-  const [cardInactive, setCardInactive] = useState(false)
   const { state } = useContext(ProgressContext)
   const { handleHelp } = useContext(AlternativesContext)
   const { step } = state
+  const cardButtonRef = useRef()
+  const helpButtonRef = useRef()
 
   const activateHelp = () => {
+    cardButtonRef.current.classList.add('disabled')
+    helpButtonRef.current.classList.add('disabled')
     handleHelp(step)
-    setInactive(true)
   }
 
   return (
     <>
-      <div className="header" style={style.main} >
+      <div className="header" style={style.main}>
         <div className="bkgesq" style={{ height: 83 }}>
           <img src={topoesq} alt="" />
         </div>
@@ -76,7 +76,7 @@ export const Main = () => {
             Voltar ao início
           </Link>
           <Link
-            className={cardInactive ? ' disabled' : ''}
+            ref={cardButtonRef}
             to="/cartas"
             style={{
               display: 'inline-flex',
@@ -98,7 +98,7 @@ export const Main = () => {
             CARTAS
           </Link>
           <Button
-            className={inactive ? 'button disabled' : 'button'}
+            ref={helpButtonRef}
             style={{
               width: 300,
               display: 'inline-flex',
@@ -128,15 +128,21 @@ export const Main = () => {
       </div>
       <Container>
         <div className="question">
-          {/* <AlternativesProvider> */}
           <article>
             {questions.map((item) => {
               if (item.index === step) {
-                return <Question src={item.image} key={item.index} bkg="#FF9955" item={item} />
+                return (
+                  <Question
+                    buttons={[cardButtonRef, helpButtonRef]}
+                    src={item.image}
+                    key={item.index}
+                    bkg="#FF9955"
+                    item={item}
+                  />
+                )
               }
             })}
           </article>
-          {/* </AlternativesProvider> */}
         </div>
       </Container>
     </>

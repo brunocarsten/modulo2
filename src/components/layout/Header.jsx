@@ -1,28 +1,10 @@
-import { useContext, useState } from 'react'
 import topodir from '../../assets/formas topo dir.png'
 import topoesq from '../../assets/formas topo esq.png'
 import chevron from '../../assets/chevron left.png'
-import carta from '../../assets/icone carta.png'
-import ajuda from '../../assets/icone ajuda.png'
-
-import { AlternativesContext } from '../../context/alternatives'
-import { ProgressContext } from '../../context/progress'
 
 import { Link } from 'react-router-dom'
-import { Button } from './Button'
 
 export const Header = ({ hasBackground = true, css }) => {
-  const [inactive, setInactive] = useState(false)
-  const [cardInactive, setCardInactive] = useState(false)
-  const { state } = useContext(ProgressContext)
-  const { handleHelp } = useContext(AlternativesContext)
-  const { step } = state
-
-  const activateHelp = () => {
-    handleHelp(step)
-    setInactive(true)
-  }
-
   const style = {
     main: {
       width: '100%',

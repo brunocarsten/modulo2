@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Container } from '../components/layout/Container'
 import { Header } from '../components/layout/Header'
 import { NavButton } from '../components/layout/NavButton'
-
+import { useLocation } from 'react-router-dom'
 import imgdir from '../assets/popup amarelo dir.png'
 import imgesq from '../assets/popup amarelo esq.png'
 
@@ -54,6 +54,7 @@ const style = {
 }
 
 export const PopupAcerto = () => {
+  const location = useLocation()
   const [link, setLink] = useState('/main')
 
   function handleAnswer() {
@@ -80,11 +81,7 @@ export const PopupAcerto = () => {
             </div>
             <div className="content" style={style.content}>
               <h1 style={style.title}>Certa resposta!</h1>
-              <p style={style.text}> A primeira infância é um dos períodos mais importantes na vida de uma criança.</p>
-              <p style={style.text}>
-                Você já está por dentro do assunto e se tornou um Iniciante. Responda as próximas questões para avançar
-                de nível!
-              </p>
+              {location.state && <p style={style.text}>{location.state.message}</p>}
               <NavButton
                 label="AVANÇAR"
                 url={link}
