@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Container } from '../components/layout/Container'
 import { Header } from '../components/layout/Header'
 import { NavButton } from '../components/layout/NavButton'
@@ -53,47 +54,51 @@ const style = {
 }
 
 export const PopupAcerto = () => {
-  let link = '/main'
+  const [link, setLink] = useState('/main')
+
   function handleAnswer() {
     const itemsDone = JSON.parse(localStorage.getItem('progress'))
     if (itemsDone) {
-      if (itemsDone.step == 8) {
-        link = '/contagem'
+      if (itemsDone.step === 8) {
+        setLink('/contagem')
       }
     }
   }
-  return(
-  <>
-    <Header></Header>
-    <Container>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'calc(100vh - 83px)' }}>
-        <div className="popup" style={style.main}>
-          <div className="bkgesq" style={style.bkg}>
-            <img src={imgesq} alt="" />
-          </div>
-          <div className="content" style={style.content}>
-            <h1 style={style.title}>Certa resposta!</h1>
-            <p style={style.text}> A primeira infância é um dos períodos mais importantes na vida de uma criança.</p>
-            <p style={style.text}>
-              {' '}
-              Você já está por dentro do assunto e se tornou um Iniciante. Responda as próximas questões para avançar de
-              nível!
-            </p>
-            <NavButton
-              onLoad = {handleAnswer()}
-              label="AVANÇAR"
-              url={link}
-              style={{ width: 264, marginTop: 20, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
-            >
-              AVANÇAR
-            </NavButton>
-          </div>
-          <div className="bkgdir" style={style.bkg}>
-            <img src={imgdir} alt="" />
+
+  useEffect(() => {
+    handleAnswer()
+  }, [])
+
+  return (
+    <>
+      <Header />
+      <Container>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: 'calc(100vh - 83px)' }}>
+          <div className="popup" style={style.main}>
+            <div className="bkgesq" style={style.bkg}>
+              <img src={imgesq} alt="" />
+            </div>
+            <div className="content" style={style.content}>
+              <h1 style={style.title}>Certa resposta!</h1>
+              <p style={style.text}> A primeira infância é um dos períodos mais importantes na vida de uma criança.</p>
+              <p style={style.text}>
+                Você já está por dentro do assunto e se tornou um Iniciante. Responda as próximas questões para avançar
+                de nível!
+              </p>
+              <NavButton
+                label="AVANÇAR"
+                url={link}
+                style={{ width: 264, marginTop: 20, background: '#3DC2EA', color: '#FFF', maxWidth: '100%' }}
+              >
+                AVANÇAR
+              </NavButton>
+            </div>
+            <div className="bkgdir" style={style.bkg}>
+              <img src={imgdir} alt="" />
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
-  </>
+      </Container>
+    </>
   )
 }
