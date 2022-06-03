@@ -1,7 +1,7 @@
 import '../styles/question.scoped.scss'
 
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useContext, useState, useEffect, forwardRef } from 'react'
+import { useContext, useState, useEffect, startTransition } from 'react'
 import { Button } from './Button'
 import { Checkbox } from './Checkbox'
 import { ProgressContext } from '../../context/progress'
@@ -23,13 +23,14 @@ export const Question = ({ buttons, ...props }) => {
   const [selected, setSelected] = useState(0)
 
   useEffect(() => {
+    startTransition(() => {
+      if (location.state) setItems(shuffle(alternatives))
+    })
+
     if (card !== undefined) {
       handleAlternatives()
     } else {
       setItems(holder)
-    }
-    if (location.state) {
-      setItems(shuffle(alternatives))
     }
   }, [])
 

@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer, useEffect, useLayoutEffect } from 'react'
 
 const ProgressContext = createContext()
 
@@ -26,7 +26,14 @@ function ProgressProvider({ children }) {
     points: 0
   })
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const storage = JSON.parse(localStorage.getItem('progress'))
+    if (storage) {
+      if (storage.step === 8) localStorage.clear()
+    }
+  }, [])
+
+  useLayoutEffect(() => {
     if (JSON.parse(localStorage.getItem('progress'))) dispatch({ type: 'update' })
   }, [])
 
