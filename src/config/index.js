@@ -1,12 +1,12 @@
 // image imports
-import image1 from '../assets/Pergunta 1.jpg'
-import image2 from '../assets/Pergunta 2.jpg'
-import image3 from '../assets/Pergunta 3.jpg'
-import image4 from '../assets/Pergunta 4.jpg'
-import image5 from '../assets/Pergunta 5.jpg'
-import image6 from '../assets/Pergunta 6.jpg'
-import image7 from '../assets/Pergunta 7.jpg'
-import image8 from '../assets/Pergunta 8.png'
+import image1 from '../assets/pergunta1.jpg'
+import image2 from '../assets/pergunta2.jpg'
+import image3 from '../assets/pergunta3.jpg'
+import image4 from '../assets/pergunta4.jpg'
+import image5 from '../assets/pergunta5.jpg'
+import image6 from '../assets/pergunta6.jpg'
+import image7 from '../assets/pergunta7.jpg'
+import image8 from '../assets/pergunta8.png'
 
 // questions
 export const questions = [

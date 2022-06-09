@@ -92,7 +92,7 @@ export const Question = ({ buttons, ...props }) => {
           />
         </div>
         <div className="image" style={{ position: 'relative' }}>
-          <div className="overlay" style={{ position: 'absolute', top: '0', left: '0', opacity: '0.75' }}>
+          <div className="overlay">
             <img src={overlay} alt="" />
           </div>
           <img src={src} alt="" />

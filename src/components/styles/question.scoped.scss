@@ -65,13 +65,29 @@
     }
   }
   .image {
-    max-width: 38%;
+    max-width: 58%;
     width: calc(100% / 3);
+    .overlay {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 349px;
+      width: 63px;
+      z-index: 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.75;
+      }
+    }
     img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: right;
+      position: absolute;
+      width: 396px;
+      height: 100%;
+      z-index: 0;
     }
   }
 }
