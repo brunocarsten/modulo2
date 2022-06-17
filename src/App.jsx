@@ -3,17 +3,17 @@ import Routes from './routes'
 import { ProgressProvider } from './context/progress'
 import { AlternativesProvider } from './context/alternatives'
 
-import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ProgressProvider>
         <AlternativesProvider>
           <Routes />
         </AlternativesProvider>
       </ProgressProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
