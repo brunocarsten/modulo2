@@ -58,7 +58,7 @@ export const PopupAcerto = () => {
   const [link, setLink] = useState('/main')
 
   function handleAnswer() {
-    const itemsDone = JSON.parse(localStorage.getItem('progress'))
+    const itemsDone = JSON.parse(localStorage.getItem('modulo2'))
     if (itemsDone) {
       if (itemsDone.step === 8) {
         setLink('/contagem')

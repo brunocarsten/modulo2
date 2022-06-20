@@ -8,7 +8,7 @@ const StepReducer = ({ step, points }, payload) => {
       return { step: step + 1, points: points + 10 }
     }
     case 'update': {
-      const storage = JSON.parse(localStorage.getItem('progress'))
+      const storage = JSON.parse(localStorage.getItem('modulo2'))
       return { step: storage.step, points: storage.points }
     }
     case 'setCard': {
@@ -27,19 +27,19 @@ function ProgressProvider({ children }) {
   })
 
   useLayoutEffect(() => {
-    const storage = JSON.parse(localStorage.getItem('progress'))
+    const storage = JSON.parse(localStorage.getItem('modulo2'))
     if (storage) {
       if (storage.step === 8) localStorage.clear()
     }
   }, [])
 
   useLayoutEffect(() => {
-    if (JSON.parse(localStorage.getItem('progress'))) dispatch({ type: 'update' })
+    if (JSON.parse(localStorage.getItem('modulo2'))) dispatch({ type: 'update' })
   }, [])
 
   useEffect(() => {
     if (state.step > 0) {
-      localStorage.setItem('progress', JSON.stringify(state))
+      localStorage.setItem('modulo2', JSON.stringify(state))
     }
   }, [state])
 
