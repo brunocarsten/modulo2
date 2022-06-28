@@ -27,14 +27,14 @@ export const Welcome = () => {
             <div className="info">
               <h1 className="title">BOAS-VINDAS!</h1>
               <p>
-                Olá! Chegou o momento de você verificar o que aprendeu até aqui. Neste jogo, você vai participar do Show
-                do Desenvolvimento Integral. É um jogo de perguntas e respostas que vale o prêmio de se tornar um expert
-                em “Estado, etnodesenvolvimento e políticas públicas da primeira infância”.
+                Olá! Chegou o momento de verificar o que você aprendeu até aqui no Show do Desenvolvimento Integral. É
+                um jogo de perguntas e respostas que vale o prêmio de se tornar um expert em “Estado,
+                etnodesenvolvimento e políticas públicas da primeira infância”.
               </p>
 
               <p>
-                Para isso, você deverá responder oito questões sobre o que foi estudado no Módulo 2 e avançar de nível
-                até alcançar o máximo e vencer o jogo.
+                Para isso, responda oito questões sobre o que foi estudado no Módulo 2, passe de nível até chegar ao
+                final e vencer o jogo.
               </p>
 
               <p>Boa sorte!</p>
@@ -79,12 +79,11 @@ export const Welcome = () => {
                   </p>
                 </li>
                 <p style={{ font: 'normal normal normal 16px/24px PT Sans Pro' }}>
-                  Recursos possíveis: - Pode-se escolher uma vez a “Ajuda dos especialistas”, que elimina duas questões
-                  erradas.{' '}
+                  Recursos possíveis: Escolha uma vez a “Ajuda dos especialistas”, que elimina duas questões erradas.
                 </p>
                 <p style={{ font: 'normal normal normal 16px/24px PT Sans Pro' }}>
-                  - Pode-se escolher as “Cartas” – quatro cartas de baralho são viradas e o participante escolhe uma. Se
-                  tirar o rei, nenhuma alternativa errada é eliminada. O ás elimina uma alternativa, o 2 elimina duas
+                  Escolha as “Cartas” – quatro cartas de baralho são viradas e o participante escolhe uma. Se tirar o
+                  rei, nenhuma alternativa errada é eliminada. O ás elimina uma alternativa, o 2 elimina duas
                   alternativas e o 3 elimina todas as três alternativas erradas, restando apenas a correta.
                 </p>
               </ul>
